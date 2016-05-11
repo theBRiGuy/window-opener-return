@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<title>iBingo simulation</title>
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+		<script>
+			$(document).ready(function(){
+
+				function returnToParent(){
+					console.log(0);
+					window.opener.external.returnFromPopup();
+					console.log(1);
+				}
+
+				$('#returnToParent').click(function(e){
+					returnToParent();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<p>This is a child window</p>
+		<button id="returnToParent" type="button">Return to parent</button>
+	</body>
+</html>

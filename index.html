@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Window.opener return test</title>
+		<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+		<script>
+			function openPopup(url, name, args) {
+				return window.open(url, name, args);
+			}
+
+			$(document).ready(function(){
+				$('#openPopup').click(function(){
+					var popup = openPopup('popup.html', 'iBingo', 'directories=no,height=600,width=800,location=yes,menubar=no,resizable=no,scrollbars=no,status=no,titlebar=yes,toolbar=no');
+					window.external.returnFromPopup = function(){
+						alert('Welcome back!');
+					}
+
+					$('#focusPopup').click(function(){
+						popup.focus();
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button id="openPopup" type="button">Open popup window</button>
+		<button id="focusPopup" type="button">Focus popup</button>
+	</body>
+</html>

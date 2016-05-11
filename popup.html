@@ -15,11 +15,17 @@
 				$('#returnToParent').click(function(e){
 					returnToParent();
 				});
+
+				$('#focusParent').click(function(e){
+					console.log('window.opener is', window.opener);
+					window.open('', 'parentWindow');
+				});
 			});
 		</script>
 	</head>
 	<body>
 		<p>This is a child window</p>
 		<button id="returnToParent" type="button">Return to parent</button>
+		<button id="focusParent" type="button">Focus parent</button>
 	</body>
 </html>

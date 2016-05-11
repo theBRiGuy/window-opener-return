@@ -9,14 +9,17 @@
 			}
 
 			$(document).ready(function(){
+				window.name = 'parentWindow';
 				$('#openPopup').click(function(){
 					var popup = openPopup('popup.html', 'iBingo', 'directories=no,height=600,width=800,location=yes,menubar=no,resizable=no,scrollbars=no,status=no,titlebar=yes,toolbar=no');
+					window.external = window.external || {};	// Apparently window.external does not exist in Safari
 					window.external.returnFromPopup = function(){
 						alert('Welcome back!');
-					}
+					};
 
 					$('#focusPopup').click(function(){
-						popup.focus();
+						// popup.focus();
+						window.open('', 'iBingo');
 					});
 				});
 			});
